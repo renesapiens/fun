@@ -16,15 +16,15 @@ void printKMax(int arr[], int n, int k){
     // First we need to take care of the first window.
     // We will ensure that the highest element of the window is always in
     // the front of the deque, for that reason on each iteration (i) we
-    // remove all the elements in the back of the deque with lower that
-    // the current element in the array. This is done in this first while
-    // loop.
+    // remove all the elements in the back of the deque with lower value
+    // than the current element in the array. This is done in this first
+    // while loop.
     for (int i = 0; i < k; i++) {
         while(!q.empty() && arr[i] >= arr[q.back()]) {
             q.pop_back();
         }
         //Each element in the array 'arr' is added at some time into the
-        // queue elements with lower value that the current maximum one
+        // deque. Elements with lower value that the current maximum one
         // are removed with the previous while loop.
         q.push_back(i);
     }
@@ -34,12 +34,13 @@ void printKMax(int arr[], int n, int k){
     // sections will be taken care in the next for loop.
     for (int i = k; i < n; i++) {
         cout << arr[q.front()] << " ";
+        //again we remove the elements with lower values in the back of the
+        // deque
         while (!q.empty() && arr[i] >= arr[q.back()])
             q.pop_back();
-        //let's remove the elements that are out of the window from the front.
-        // As you can see we are attacking the deque in the front as well, but
-        // now we only remove the elements that are not part of the subarray
-        // and for that reason not valid.
+        // Let's remove the elements that are out of the window acting in the
+        // front of the deque, now we only remove the elements that are not
+        // part of the subarray(or window) and for that reason not valid.
         while(!q.empty() && q.front() <= i-k)
             q.pop_front();
         q.push_back(i);
