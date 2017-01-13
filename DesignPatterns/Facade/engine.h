@@ -15,22 +15,26 @@ class Engine {
 
   public:
     Engine(std::string desc, bool status) :
-            description(desc), state(status) {
+         description(desc), state(status) {
     }
 
     void start() const {
         std::cout << description << " Starting engine" << std::endl;
     }
+
     void stop() const {
         std::cout << description << " Turning off the engine" << std::endl;
     }
+
     void turn_on_pistons() const {
         std::cout << description << " Turning on pistons" << std::endl;
     }
+
     void save_energy() const {
         std::cout << description << " Entering save mode." << std::endl;
     }
 };
+
 }
 }
 #endif

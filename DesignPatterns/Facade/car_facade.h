@@ -48,6 +48,7 @@ class CarFacade {
         radio->set_frequency(frequency);
     }
 };
+
 }
 }
 #endif

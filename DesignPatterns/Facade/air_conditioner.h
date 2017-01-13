@@ -16,7 +16,7 @@ class AirConditioner {
 
   public:
     AirConditioner(int temp, bool on_off) :
-                  state(on_off), temperature(temp) {
+         state(on_off), temperature(temp) {
     }
 
     void turn_on() {
@@ -30,10 +30,11 @@ class AirConditioner {
     }
 
     void set_temperature(int temp) {
-        std::cout << "Setting air conditioner temperature to: " << temp << std::endl;
+        std::cout << "Setting ac temperature to: " << temp << std::endl;
         temperature = temp;
     }
 };
+
 }
 }
 #endif
